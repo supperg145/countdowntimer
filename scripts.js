@@ -4,6 +4,7 @@
 
 $(document).ready(function () {
   let interval;
+
   $(".newTimer").css("display", "none");
   $(".timer-container").css("display", "none");
 
@@ -70,6 +71,7 @@ $(document).ready(function () {
   });
 
   $(".newTimer").on("click", function () {
+    clearInterval(interval);
     $(".newTimer").hide();
     $(".timer-container").hide();
     $(".setTimer-container").fadeIn();
@@ -82,4 +84,8 @@ $(document).ready(function () {
     $(".setMinutes").val("");
     $(".setHours").val("");
   });
+
+  function playAlarmSound() {
+    $("#alarmSound")[0].play();
+  }
 });
